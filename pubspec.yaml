@@ -1,0 +1,20 @@
+name: flutter_util_xx
+description: "A flutter util for musicxx."
+version: 0.0.1
+homepage: https://github.com/coolight7/flutter_util_xx
+
+environment:
+  sdk: ^2.19.6
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  util_xx:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
