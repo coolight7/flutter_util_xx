@@ -6,6 +6,8 @@ import 'dart:math' as math;
 import 'package:flutter/widgets.dart';
 
 class FlutterUtilxx_c {
+  static BuildContext? context;
+
   /// 计算Text组件的宽高
   static Size countTextWidgetSize(
     String text,
@@ -16,10 +18,14 @@ class FlutterUtilxx_c {
     if (text.isEmpty) {
       return Size.zero;
     }
+    // TextPainter 默认 textScaler 是不缩放，如果系统存在缩放，则会和 Text 组件出现偏差
     final TextPainter textPainter = TextPainter(
       text: TextSpan(text: text, style: style),
       textDirection: TextDirection.ltr,
       textWidthBasis: TextWidthBasis.longestLine,
+      textScaler: (null != context)
+          ? MediaQuery.textScalerOf(context!)
+          : TextScaler.noScaling,
       maxLines: maxLines,
     )..layout(maxWidth: maxWidth);
     return textPainter.size;
