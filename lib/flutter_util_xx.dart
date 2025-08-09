@@ -28,7 +28,9 @@ class FlutterUtilxx_c {
           : TextScaler.noScaling,
       maxLines: maxLines,
     )..layout(maxWidth: maxWidth);
-    return textPainter.size;
+    final size = textPainter.size;
+    textPainter.dispose();
+    return size;
   }
 
   static Color shiftColor(Color color, int shift) {
